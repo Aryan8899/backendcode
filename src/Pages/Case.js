@@ -421,142 +421,123 @@ const handleCaseSubmit = async (e) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-indigo-200 font-sans">
-    {/* Header with Hero Section */}
-    <header className="bg-gradient-to-r from-blue-600 to-indigo-700 text-white py-10 px-6 shadow-lg">
-      <div className="max-w-6xl mx-auto text-center">
-        <h1 className="text-4xl md:text-5xl font-bold mb-3">Missing Persons Registry</h1>
-        <p className="text-lg md:text-xl opacity-90 max-w-2xl mx-auto">
-          Help reunite families by reporting cases or exploring our interactive database
+    <div className="min-h-screen bg-gradient-to-br from-sky-50 to-indigo-100 font-sans antialiased">
+    {/* Animated Header with Dynamic Gradient */}
+    <header className="relative bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-700 text-white py-16 px-6 shadow-2xl overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-700 opacity-70 animate-pulse"></div>
+      <div className="max-w-6xl mx-auto text-center relative z-10">
+        <h1 className="text-5xl md:text-6xl font-extrabold mb-4 tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-blue-200 animate-gradient-x">
+          Missing Persons Registry
+        </h1>
+        <p className="text-xl md:text-2xl opacity-90 max-w-3xl mx-auto font-light tracking-wide">
+          Empowering Communities to Reunite Families Through Collaborative Search and Support
         </p>
       </div>
     </header>
-  
-    <div className="max-w-6xl mx-auto px-4 py-8">
-      {/* Report New Case Section */}
-      <section className="mb-10 rounded-xl bg-white shadow-xl overflow-hidden">
-        <div className="bg-gradient-to-r from-blue-500 to-blue-900 px-6 py-4">
+
+    <div className="max-w-6xl mx-auto px-4 py-10">
+      {/* Report New Case Section with Enhanced Design */}
+      <section className="mb-12 rounded-3xl bg-white shadow-2xl border-2 border-blue-100 overflow-hidden transform transition-all hover:scale-[1.02]">
+        <div className="bg-gradient-to-r from-cyan-500 to-blue-900 px-6 py-5">
           <div className="flex items-center">
-            <div className="bg-white p-2 rounded-full shadow-md">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="bg-white p-3 rounded-full shadow-lg transform hover:rotate-6 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
               </svg>
             </div>
-            <h3 className="ml-3 text-2xl font-bold text-white">Report New Case</h3>
+            <h3 className="ml-4 text-3xl font-bold text-white tracking-wide">Report New Case</h3>
           </div>
         </div>
         
-        <form onSubmit={handleCaseSubmit} className="p-6">
+        <form onSubmit={handleCaseSubmit} className="p-8 space-y-6 bg-gradient-to-br from-blue-50 to-white">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700">Full Name</label>
-              <input
-                type="text"
-                name="name"
-                placeholder="Enter full name"
-                value={formData.name}
-                onChange={(e) => handleInputChange(e, formData, setFormData)}
-                className="p-3 rounded-lg border border-gray-300 w-full focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition-all duration-200"
-                required
-              />
-            </div>
-            
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700">Age</label>
-              <input
-                type="number"
-                name="age"
-                placeholder="Enter age"
-                value={formData.age}
-                onChange={(e) => handleInputChange(e, formData, setFormData)}
-                className="p-3 rounded-lg border border-gray-300 w-full focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition-all duration-200"
-                required
-              />
-            </div>
-            
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700">Gender</label>
-              <select
-                name="gender"
-                value={formData.gender}
-                onChange={(e) => handleInputChange(e, formData, setFormData)}
-                className="p-3 rounded-lg border border-gray-300 w-full focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition-all duration-200 bg-white"
-                required
-              >
-                <option value="">Select Gender</option>
-                <option value="Male">Male</option>
-                <option value="Female">Female</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700">Last Seen Location</label>
-              <input
-                type="text"
-                name="lastSeenLocation"
-                placeholder="Enter location"
-                value={formData.lastSeenLocation}
-                onChange={(e) => handleInputChange(e, formData, setFormData)}
-                className="p-3 rounded-lg border border-gray-300 w-full focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition-all duration-200"
-                required
-              />
-            </div>
+            {/* Input fields with enhanced styling */}
+            {['name', 'age', 'gender', 'lastSeenLocation'].map((field) => (
+              <div key={field} className="space-y-2">
+                <label className="block text-sm font-medium text-gray-700 capitalize">
+                  {field.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}
+                </label>
+                {field === 'gender' ? (
+                  <select
+                    name={field}
+                    value={formData[field]}
+                    onChange={(e) => handleInputChange(e, formData, setFormData)}
+                    className="w-full px-4 py-3 border border-blue-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300 bg-white shadow-sm"
+                    required
+                  >
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                  </select>
+                ) : (
+                  <input
+                    type={field === 'age' ? 'number' : 'text'}
+                    name={field}
+                    placeholder={`Enter ${field.replace(/([A-Z])/g, ' $1').toLowerCase()}`}
+                    value={formData[field]}
+                    onChange={(e) => handleInputChange(e, formData, setFormData)}
+                    className="w-full px-4 py-3 border border-blue-200 rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300 shadow-sm"
+                    required
+                  />
+                )}
+              </div>
+            ))}
           </div>
           
-          <div className="mt-6">
-            <label className="block text-sm font-medium text-gray-700 mb-2">Description</label>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">Detailed Description</label>
             <textarea
               name="description"
-              placeholder="Include clothing, distinguishing features, and circumstances of disappearance"
+              placeholder="Provide comprehensive details about the missing person, including physical description, clothing, and last known circumstances"
               value={formData.description}
               onChange={(e) => handleInputChange(e, formData, setFormData)}
-              className="p-4 rounded-lg border border-gray-300 w-full min-h-[120px] resize-y focus:ring-2 focus:ring-blue-500 focus:border-blue-500 shadow-sm transition-all duration-200"
+              className="w-full px-4 py-3 border border-blue-200 rounded-xl min-h-[150px] resize-y focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all duration-300 shadow-sm"
               required
             />
           </div>
           
-          {/* File Upload Field with improved styling */}
-          <div className="mt-6">
+          {/* Enhanced File Upload with Preview */}
+          <div>
             <label className="block text-sm font-medium text-gray-700 mb-2">
-              Upload Photo
+              Upload Recent Photograph
             </label>
-            <div className="flex items-center justify-center w-full">
-              <label className="flex flex-col items-center justify-center w-full h-40 border-2 border-blue-300 border-dashed rounded-lg cursor-pointer bg-blue-50 hover:bg-blue-100 transition-all duration-200">
-                <div className="flex flex-col items-center justify-center pt-5 pb-6">
-                  <svg className="w-10 h-10 mb-3 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
-                  </svg>
-                  <p className="mb-1 text-sm text-gray-600">
-                    <span className="font-medium">Click to upload</span> or drag and drop
-                  </p>
-                  <p className="text-xs text-gray-500">JPEG, PNG, or JPG (MAX. 2MB)</p>
-                </div>
-                <input 
-                  type="file" 
-                  className="hidden" 
-                  accept="image/*" 
-                  onChange={handleFileChange} 
-                />
+            <div className="w-full border-2 border-dashed border-blue-300 rounded-xl p-6 text-center hover:bg-blue-50 transition-colors group">
+              <input 
+                type="file" 
+                className="hidden" 
+                id="file-upload"
+                accept="image/*" 
+                onChange={handleFileChange}
+              />
+              <label 
+                htmlFor="file-upload" 
+                className="cursor-pointer flex flex-col items-center justify-center space-y-4"
+              >
+                <svg className="w-12 h-12 text-blue-500 group-hover:text-blue-600 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                </svg>
+                <p className="text-gray-600 group-hover:text-blue-700 transition-colors">
+                  <span className="font-semibold">Click to upload</span> or drag and drop
+                </p>
+                <p className="text-xs text-gray-500">PNG, JPG, JPEG (MAX 2MB)</p>
               </label>
             </div>
+            
             {preview && (
-              <div className="mt-4">
-                <div className="relative inline-block group">
+              <div className="mt-6 flex justify-center">
+                <div className="relative group">
                   <img 
                     src={preview} 
-                    alt="Preview" 
-                    className="h-40 object-cover rounded-md border border-gray-300 shadow-sm"
+                    alt="Photo Preview" 
+                    className="max-h-64 rounded-xl shadow-lg border-4 border-white group-hover:scale-105 transition-transform"
                   />
                   <button 
                     type="button"
-                    onClick={() => {
-                      setPreview(null);
-                      // Reset file input logic would go here
-                    }}
-                    className="absolute top-2 right-2 bg-red-500 text-white rounded-full p-2 hover:bg-red-600 focus:outline-none shadow-md opacity-90 hover:opacity-100 transition-all duration-200"
+                    onClick={() => setPreview(null)}
+                    className="absolute top-3 right-3 bg-red-500 text-white rounded-full p-2 opacity-0 group-hover:opacity-100 hover:bg-red-600 transition-all"
                   >
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   </button>
@@ -565,58 +546,61 @@ const handleCaseSubmit = async (e) => {
             )}
           </div>
           
-          <div className="mt-8 flex justify-end">
+          <div className="flex justify-end">
             <button 
               type="submit" 
-              className="px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium rounded-lg transition-all duration-300 flex items-center shadow-lg transform hover:translate-y-[-2px]"
+              className="px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-bold rounded-xl transition-all duration-300 transform hover:-translate-y-1 shadow-2xl hover:shadow-lg flex items-center"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              Submit Case
+              Submit Missing Person Report
             </button>
           </div>
         </form>
       </section>
     
-      {/* Time-Based Disappearance Map with improved styling */}
-      <section className="rounded-xl bg-white shadow-xl overflow-hidden">
-        <div className="bg-gradient-to-r from-indigo-500 to-indigo-600 px-6 py-4">
+      {/* Time-Based Disappearance Map with Enhanced Styling */}
+      <section className="rounded-3xl bg-white shadow-2xl border-2 border-indigo-100 overflow-hidden transform transition-all hover:scale-[1.02]">
+        <div className="bg-gradient-to-r from-indigo-600 to-purple-700 px-6 py-5">
           <div className="flex items-center">
-            <div className="bg-white p-2 rounded-full shadow-md">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <div className="bg-white p-3 rounded-full shadow-lg transform hover:rotate-6 transition-transform">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-indigo-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
               </svg>
             </div>
-            <h3 className="ml-3 text-2xl font-bold text-white">Time-Based Disappearance Map</h3>
+            <h3 className="ml-4 text-3xl font-bold text-white tracking-wide">Disappearance Tracking Map</h3>
           </div>
         </div>
         
-        <div className="p-6">
-          <div className="bg-indigo-50 p-4 rounded-lg mb-6 flex items-center border-l-4 border-indigo-500 shadow-sm">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-indigo-600 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        <div className="p-8 bg-gradient-to-br from-indigo-50 to-white">
+          {/* Case Status Legend with Enhanced Design */}
+          <div className="bg-indigo-100 p-5 rounded-xl mb-6 border-l-4 border-indigo-500 flex items-center shadow-md">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-indigo-600 mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <div className="text-sm">
-              <p className="font-semibold text-gray-700 mb-2">Case Status Legend:</p>
+            <div>
+              <h4 className="text-lg font-semibold text-gray-800 mb-2">Case Status Timeline</h4>
               <div className="flex flex-wrap gap-4">
-                <span className="inline-flex items-center">
-                  <span className="h-4 w-4 rounded-full bg-green-500 mr-2 shadow-sm"></span> 
-                  <span className="text-gray-700">Recent ( 7 days)</span>
-                </span>
-                <span className="inline-flex items-center">
-                  <span className="h-4 w-4 rounded-full bg-orange-500 mr-2 shadow-sm"></span> 
-                  <span className="text-gray-700">Ongoing (7-30 days)</span>
-                </span>
-                <span className="inline-flex items-center">
-                  <span className="h-4 w-4 rounded-full bg-red-500 mr-2 shadow-sm"></span> 
-                  <span className="text-gray-700">Long-term ( 30 days)</span>
-                </span>
+                {[
+                  { color: 'green-500', label: 'Recent (7 days)', desc: 'Newly reported cases' },
+                  { color: 'orange-500', label: 'Ongoing (7-30 days)', desc: 'Active investigations' },
+                  { color: 'red-500', label: 'Long-term (30+ days)', desc: 'Extended search needed' }
+                ].map(({ color, label, desc }) => (
+                  <div key={label} className="flex items-center">
+                    <span className={`h-5 w-5 rounded-full bg-${color} mr-2 shadow-md`}></span>
+                    <div>
+                      <span className="font-medium text-gray-800">{label}</span>
+                      <p className="text-xs text-gray-600">{desc}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
           
-          <div className="h-96 w-full rounded-xl overflow-hidden shadow-lg border border-gray-200">
+          {/* Map Container with Enhanced Styling */}
+          <div className="h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl border-4 border-indigo-100">
             <MapContainer center={[20.5937, 78.9629]} zoom={5} className="h-full w-full">
               <TileLayer
                 attribution='&copy; OpenStreetMap contributors'
@@ -639,88 +623,39 @@ const handleCaseSubmit = async (e) => {
                         <div className="space-y-1 text-sm">
                           <p><span className="font-medium text-gray-700">Age:</span> <span className="text-gray-900">{c.age}</span></p>
                           <p><span className="font-medium text-gray-700">Gender:</span> <span className="text-gray-900">{c.gender}</span></p>
-                          <p><span className="font-medium text-gray-700">Last seen:</span> <span className="text-gray-900">{c.lastSeenLocation}</span></p>
-                          <p><span className="font-medium text-gray-700">Missing for:</span> <span className="text-gray-900">{daysOld} day(s)</span></p>
+                          <p><span className = "font-medium text-gray-700">Last seen:</span> <span className="text-gray-900">{c.lastSeenLocation}</span></p>
+                            <p><span className="font-medium text-gray-700">Missing for:</span> <span className="text-gray-900">{daysOld} day(s)</span></p>
+                          </div>
+                          {c.photoUrl && (
+                            <img 
+                              src={c.photoUrl} 
+                              alt={c.name} 
+                              className="mt-3 max-w-full h-28 object-cover rounded-md shadow-sm" 
+                            />
+                          )}
+                          <div className="mt-3 pt-2 border-t flex justify-between items-center">
+                            <button className="bg-blue-600 text-white py-2 px-4 rounded-lg text-sm hover:bg-blue-700 transition-colors shadow-sm flex items-center">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                              </svg>
+                              View Details
+                            </button>
+                            <button className="text-blue-600 hover:text-blue-800 text-sm font-medium">
+                              Report Info
+                            </button>
+                          </div>
                         </div>
-                        {c.photoUrl && (
-                          <img 
-                            src={c.photoUrl} 
-                            alt={c.name} 
-                            className="mt-3 max-w-full h-28 object-cover rounded-md shadow-sm" 
-                          />
-                        )}
-                        <div className="mt-3 pt-2 border-t flex justify-between items-center">
-                          <button className="bg-blue-600 text-white py-2 px-4 rounded-lg text-sm hover:bg-blue-700 transition-colors shadow-sm flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                            </svg>
-                            View Details
-                          </button>
-                          <button className="text-blue-600 hover:text-blue-800 text-sm font-medium">
-                            Report Info
-                          </button>
-                        </div>
-                      </div>
-                    </Popup>
-                  </Marker>
-                );
-              })}
-            </MapContainer>
+                      </Popup>
+                    </Marker>
+                  );
+                })}
+              </MapContainer>
+            </div>
           </div>
-          
-          {/* <div className="mt-6 text-center">
-            <button className="inline-flex items-center px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg font-medium hover:bg-indigo-200 transition-colors">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-              Load More Cases
-            </button>
-          </div> */}
-        </div>
-      </section>
+        </section>
+      </div>
     </div>
-    
-    {/* Footer */}
-    {/* <footer className="mt-12 bg-gray-800 text-white py-8 px-6"> */}
-      {/* <div className="max-w-6xl mx-auto"> */}
-        {/* <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <h2 className="text-xl font-bold mb-2">Missing Persons Registry</h2>
-            <p className="text-gray-300 text-sm">Helping reunite families since 2023</p>
-          </div>
-          <div className="flex space-x-4">
-            <a href="#" className="text-gray-300 hover:text-white transition-colors">
-              <span className="sr-only">Facebook</span>
-              <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
-              </svg>
-            </a>
-            <a href="#" className="text-gray-300 hover:text-white transition-colors">
-              <span className="sr-only">Twitter</span>
-              <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-              </svg>
-            </a>
-            <a href="#" className="text-gray-300 hover:text-white transition-colors">
-              <span className="sr-only">Instagram</span>
-              <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                <path fillRule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clipRule="evenodd" />
-              </svg>
-            </a>
-          </div>
-        </div> */}
-        {/* <div className="mt-8 pt-6 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-gray-400">&copy; 2025 Missing Persons Registry. All rights reserved.</p>
-          <div className="mt-4 md:mt-0 flex space-x-6">
-            <a href="#" className="text-sm text-gray-400 hover:text-gray-300">Privacy Policy</a>
-            <a href="#" className="text-sm text-gray-400 hover:text-gray-300">Terms of Service</a>
-            <a href="#" className="text-sm text-gray-400 hover:text-gray-300">Contact Us</a>
-          </div>
-        </div> */}
-      {/* </div> */}
-    {/* </footer> */}
-  </div>
   );
 };
 
